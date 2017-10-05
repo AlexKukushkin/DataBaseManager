@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="Students">
+		<xs:annotation>
+			<xs:documentation>Список студентов</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Student" type="StudentType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="StudentType">
+		<xs:sequence>
+			<xs:element name="studentData" type="StudentData"/>
+			<xs:element name="Group" type="GroupData"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StudentData">
+		<xs:sequence>
+			<xs:element name="FirstName" type="xs:string"/>
+			<xs:element name="LastName" type="xs:string"/>
+			<xs:element name="FamilyName" type="xs:string"/>
+			<xs:element name="birthDate" type="xs:date"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="GroupData">
+		<xs:sequence>
+			<xs:element name="groupName" type="xs:string"/>
+			<xs:element name="groupNum" type="xs:integer"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GroupType">
+		<xs:sequence>
+			<xs:element name="groupData" type="GroupData"/>
+			<xs:element name="student" type="StudentData" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
